@@ -11,13 +11,12 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
-  Row,
   SortingState,
   getSortedRowModel,
 } from "@tanstack/react-table";
 
 import StyledWrapper from "./StyleWrapper";
-import { useVirtual } from "react-virtual";
+import { useVirtual } from "@tanstack/react-virtual";
 
 interface Props {
   columnsTable: any[];
@@ -49,7 +48,7 @@ export const Datagrid = ({ columnsTable, dataTable }: Props) => {
   const rowVirtualizer = useVirtual({
     parentRef: tableContainerRef,
     size: rows.length,
-    overscan: 10,
+    overscan: 50,
   });
 
   const { virtualItems: virtualRows, totalSize } = rowVirtualizer;
@@ -61,8 +60,8 @@ export const Datagrid = ({ columnsTable, dataTable }: Props) => {
       : 0;
 
   return (
-    <div ref={tableContainerRef}>
-      <StyledWrapper>
+    <StyledWrapper>
+      <div ref={tableContainerRef} className="container">
         <Table className="table">
           <TableHead className="thead">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -137,8 +136,8 @@ export const Datagrid = ({ columnsTable, dataTable }: Props) => {
             )}
           </TableBody>
         </Table>
-      </StyledWrapper>
-    </div>
+      </div>
+    </StyledWrapper>
   );
 };
 

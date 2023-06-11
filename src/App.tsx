@@ -3,7 +3,7 @@ import { columns } from "./constants/column";
 import { makeData } from "./helpers/makeData";
 
 function App() {
-  const data = makeData(10000);
+  const data = makeData(100000);
 
   return (
     <div>

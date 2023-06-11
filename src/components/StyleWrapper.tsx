@@ -1,12 +1,16 @@
 import styled from "@emotion/styled";
 
 export const StyledWrapper = styled.div`
-  width: 800px;
-  height: 500px;
-  overflow: auto;
+  .container {
+    height: 500px;
+    max-width: 900px !important;
+    overflow: auto;
+  }
   .table {
     border-collapse: collapse;
     border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
     thead {
       background-color: #ccc;
       position: sticky;
